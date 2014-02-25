@@ -26,7 +26,7 @@
         <div class="container">
             <div class="header">
                 <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#">Home</a></li>
+                    <li class="active"><a href="#home">Home</a></li>
                     <li><a href="#about">About</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
@@ -41,18 +41,18 @@
 
         </div>
 
-        <script type="text/template" id="main-page-template">
+        <script type="text/template" id="home-page-template">
             <h1>Welcome!</h1>
             <p class="lead">Click "About" and "Contact" for more info.</p>
         </script>
 
         <script type="text/template" id="about-page-template">
-            <h1>Welcome!</h1>
-            <p class="lead">Welcome to the About page.</p>
+            <h1>About!</h1>
+            <p class="lead">This is the About page.</p>
         </script>
 
         <script type="text/template" id="contact-page-template">
-            <h1>Welcome!</h1>
+            <h1>Contact!</h1>
             <p class="lead">Like what you see? Drop us a line!</p>
         </script>
 
@@ -89,9 +89,10 @@
         <!-- endbuild -->
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
+        <script src="scripts/router.js"></script>
+        <script src="scripts/home-view.js"></script>
         <script src="scripts/contact-view.js"></script>
         <script src="scripts/about-view.js"></script>
-        <script src="scripts/router.js"></script>
         <script src="scripts/main.js"></script>
         <script src="scripts/templates.js"></script>
         <!-- endbuild -->

@@ -1,23 +1,21 @@
-var aboutPageView = Backbone.View.extend({
+var AboutPageView = Backbone.View.extend({
     tagName: 'div',
     className: 'jumbotron',
 
-    template: _.template($('').text()),
+    template: _.template($('#about-page-template').text()),
 
     events: {
 
     },
 
     initialize: function() {
-        $('main-container').append( this.el ); //empty tag into DOM
+        $('.main-container').append( this.el ); //empty tag into DOM
 
         this.render();
-
-        this.listenTo(this.model, 'change', this.render)
     },
 
     render: function() {
-        var renderedTemplate = this.template( this.model.attributes );
+        var renderedTemplate = this.template();
 
         this.$el.html( renderedTemplate );
     }
