@@ -1,19 +1,25 @@
 var MainRouter = Backbone.Router.extend({
 
     routes: {
+        "home" : "homePage"
         "about" : "aboutPage",
         "about/:name" : "aboutPage"
+        "contact" : "contactPage"
     },
 
     initialize: function() {
         console.log('Router initialized!')
     },
 
-    aboutPage: function(name) {
-        if(name) {
-            console.log("Here's a page about", name)
-        } else {
-        console.log("You're at the About Page!")
-        }
+    homePage: function() {
+
+    },
+
+    aboutPage: function() {
+
+    }
+
+    contactPage: function() {
+
     }
 });
