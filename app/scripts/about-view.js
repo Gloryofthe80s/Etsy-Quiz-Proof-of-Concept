@@ -1,8 +1,8 @@
-var AboutPageView = Backbone.View.extend({
+var ItemsPageView = Backbone.View.extend({
     tagName: 'div',
     className: 'jumbotron',
 
-    template: _.template($('#about-page-template').text()),
+    template: _.template($('#items-page-template').text()),
 
     events: {
 

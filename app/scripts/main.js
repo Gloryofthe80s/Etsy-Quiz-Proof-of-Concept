@@ -1,8 +1,10 @@
 $(document).ready(function () {
-    var routeMeBaby = new MainRouter();
+    var router = new MainRouter();
 
     //actually starts the router
     Backbone.history.start();
 
+    var allItems = new ItemsCollection();
 
 });
+

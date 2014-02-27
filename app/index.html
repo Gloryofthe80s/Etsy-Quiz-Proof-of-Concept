@@ -6,7 +6,7 @@
     <head>
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <title>Router_Example</title>
+        <title>Etsy Horseplay</title>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -27,10 +27,10 @@
             <div class="header">
                 <ul class="nav nav-pills pull-right">
                     <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
+                    <li><a href="#items">Items</a></li>
                     <li><a href="#contact">Contact</a></li>
                 </ul>
-                <h3 class="text-muted">Backbone Routers</h3>
+                <h3 class="text-muted">Etsy Horseplay</h3>
             </div>
 
             <div class="main-container"></div>
@@ -43,12 +43,12 @@
 
         <script type="text/template" id="home-page-template">
             <h1>Welcome!</h1>
-            <p class="lead">Click "About" and "Contact" for more info.</p>
+            <p class="lead">Click "Items" to see some weird stuff.</p>
         </script>
 
-        <script type="text/template" id="about-page-template">
+        <script type="text/template" id="items-page-template">
             <h1>About!</h1>
-            <p class="lead">This is the About page.</p>
+            <p class="lead">This is the Items page.</p>
         </script>
 
         <script type="text/template" id="contact-page-template">
@@ -56,6 +56,8 @@
             <p class="lead">Like what you see? Drop us a line!</p>
         </script>
 
+
+        <!-- LOAD THE SoundCloud JS SDK-->
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
         <script>
@@ -90,6 +92,7 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/router.js"></script>
+        <script src="scripts/item-collection.js"></script>
         <script src="scripts/home-view.js"></script>
         <script src="scripts/contact-view.js"></script>
         <script src="scripts/about-view.js"></script>

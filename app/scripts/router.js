@@ -2,8 +2,7 @@ var MainRouter = Backbone.Router.extend({
 
     routes: {
         "home" : "homePage",
-        "about" : "aboutPage",
-        "about/:name" : "aboutPage",
+        "items" : "itemsPage",
         "contact" : "contactPage"
     },
 
@@ -17,10 +16,10 @@ var MainRouter = Backbone.Router.extend({
         $('.main-container').append(new HomePageView());
     },
 
-    aboutPage: function() {
-        console.log('About page!')
+    itemsPage: function() {
+        console.log('Items page!')
         $('.main-container').html('');
-        $('.main-container').append(new AboutPageView());
+        $('.main-container').append(new ItemsPageView());
     },
 
     contactPage: function() {
