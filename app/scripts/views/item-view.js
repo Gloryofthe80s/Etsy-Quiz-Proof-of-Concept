@@ -15,8 +15,8 @@ var ItemsPageView = Backbone.View.extend({
     },
 
     render: function() {
-        var renderedTemplate = this.template();
-
-        this.$el.html( renderedTemplate );
+        var renderedTemplate = this.template(this.model.attributes);
+        console.log(renderedTemplate);
+        this.$el.append( renderedTemplate );
     }
 });

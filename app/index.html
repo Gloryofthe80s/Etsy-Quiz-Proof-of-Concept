@@ -47,8 +47,10 @@
         </script>
 
         <script type="text/template" id="items-page-template">
-            <h1>About!</h1>
-            <p class="lead">This is the Items page.</p>
+            <p class="lead"> <%= title %> </p>
+            <br>
+            <p> <%= price %></p>
+            <img src= <%= this.model.attributes.Images[0].url_570xN %> >
         </script>
 
         <script type="text/template" id="contact-page-template">
@@ -56,18 +58,6 @@
             <p class="lead">Like what you see? Drop us a line!</p>
         </script>
 
-
-        <!-- LOAD THE SoundCloud JS SDK-->
-
-        <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
-        <script>
-            (function(b,o,i,l,e,r){b.GoogleAnalyticsObject=l;b[l]||(b[l]=
-            function(){(b[l].q=b[l].q||[]).push(arguments)});b[l].l=+new Date;
-            e=o.createElement(i);r=o.getElementsByTagName(i)[0];
-            e.src='//www.google-analytics.com/analytics.js';
-            r.parentNode.insertBefore(e,r)}(window,document,'script','ga'));
-            ga('create','UA-XXXXX-X');ga('send','pageview');
-        </script>
 
         <!-- build:js scripts/vendor.js -->
         <script src="bower_components/jquery/jquery.js"></script>
@@ -92,12 +82,12 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/router.js"></script>
-        <script src="scripts/item-collection.js"></script>
-        <script src="scripts/home-view.js"></script>
-        <script src="scripts/contact-view.js"></script>
-        <script src="scripts/about-view.js"></script>
+        <script src="scripts/views/home-view.js"></script>
+        <script src="scripts/views/contact-view.js"></script>
+        <script src="scripts/views/item-view.js"></script>
+        <script src="scripts/models/expensive-item-collection.js"></script>
+        <script src="scripts/models/cheap-item-collection.js"></script>
         <script src="scripts/main.js"></script>
-        <script src="scripts/templates.js"></script>
         <!-- endbuild -->
 </body>
 </html>

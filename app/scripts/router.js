@@ -17,9 +17,12 @@ var MainRouter = Backbone.Router.extend({
     },
 
     itemsPage: function() {
-        console.log('Items page!')
+        console.log('Items page!');
         $('.main-container').html('');
-        $('.main-container').append(new ItemsPageView());
+
+        _.each(items.models, function(el, i) {
+            new ItemsPageView({model: el});
+        });
     },
 
     contactPage: function() {
