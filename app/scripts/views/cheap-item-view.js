@@ -1,6 +1,6 @@
 var ItemView = Backbone.View.extend({
     tagName: 'div',
-    className: 'jumbotron',
+    className: 'choices-container',
 
     template: _.template($('#items-page-template').text()),
 
@@ -15,7 +15,6 @@ var ItemView = Backbone.View.extend({
 
     render: function() {
         var renderedTemplate = this.template(this.model.attributes);
-        //console.log(renderedTemplate);
         this.$el.append( renderedTemplate );
     }
 });

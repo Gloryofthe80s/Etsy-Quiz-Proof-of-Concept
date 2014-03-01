@@ -26,10 +26,14 @@ var MainRouter = Backbone.Router.extend({
     itemsPage: function() {
         console.log('Items page!');
         this.setActiveTab('items');
-        
+
         $('.main-container').html('');
 
         _.each(cheapItems.models, function(el, i) {
+            new ItemView({model: el});
+        });
+
+        _.each(expensiveItems.models, function(el, i) {
             new ItemView({model: el});
         });
     },

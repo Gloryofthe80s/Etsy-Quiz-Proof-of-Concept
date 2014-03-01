@@ -47,10 +47,20 @@
         </script>
 
         <script type="text/template" id="items-page-template">
-            <p class="lead"> <%= title %> </p>
-            <br>
-            <p> <%= price %></p>
-            <img src= <%= this.model.attributes.Images[0].url_570xN %> >
+            <div class="row">
+                <div class="item-container">
+                    <p class="lead"> <%= title %> </p>
+                    <img class="item-image" src= <%= this.model.attributes.Images[0].url_570xN %> >
+                    <p> <%= price %> </p>
+                </div>
+
+                <div class="item-container">
+                    <p class="lead"> <%= title %> </p>
+                    <img class="item-image" src= <%= this.model.attributes.Images[0].url_570xN %> >
+                    <p> <%= price %> </p>
+                </div>
+            </div>
+
         </script>
 
         <script type="text/template" id="contact-page-template">
@@ -84,7 +94,8 @@
         <script src="scripts/router.js"></script>
         <script src="scripts/views/home-view.js"></script>
         <script src="scripts/views/contact-view.js"></script>
-        <script src="scripts/views/item-view.js"></script>
+        <script src="scripts/views/cheap-item-view.js"></script>
+        <script src="scripts/views/expensive-item-view.js"></script>
         <script src="scripts/models/item-model.js"></script>
         <script src="scripts/models/expensive-items-collection.js"></script>
         <script src="scripts/models/cheap-items-collection.js"></script>

@@ -94,3 +94,23 @@ body {
     text-align: right;
 }
 
+// ------ ITEM BOXES ------
+
+.choices-container {
+    position: relative;
+}
+
+.item-container {
+    display: inline-block;
+    background-color: yellow;
+    border: 1px solid black;
+    width: 340px;
+}
+
+.item-name {
+    font-size: 16px;
+}
+
+.item-image {
+    width: 320px;
+}
