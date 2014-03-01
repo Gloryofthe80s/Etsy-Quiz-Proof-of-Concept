@@ -20,8 +20,8 @@ var MainRouter = Backbone.Router.extend({
         console.log('Items page!');
         $('.main-container').html('');
 
-        _.each(items.models, function(el, i) {
-            new ItemsPageView({model: el});
+        _.each(cheapItems.models, function(el, i) {
+            new ItemView({model: el});
         });
     },
 

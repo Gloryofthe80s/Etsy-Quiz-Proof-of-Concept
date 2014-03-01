@@ -1,4 +1,4 @@
-var ItemsPageView = Backbone.View.extend({
+var ItemView = Backbone.View.extend({
     tagName: 'div',
     className: 'jumbotron',
 

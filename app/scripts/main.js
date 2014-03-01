@@ -1,14 +1,18 @@
 $(document).ready(function () {
-    window.items = new ExpensiveItemsCollection();
 
-    items.on('add',function(newItem){
-        console.log('ADD EVENT!')
-        new ItemsPageView({model: newItem})
+    window.expensiveItems = new ExpensiveItemsCollection();
+    window.cheapItems = new CheapItemsCollection();
+
+    expensiveItems.on('add',function(newItem){
+        new ItemView({model: newItem})
+    });
+
+    cheapItems.on('add',function(newItem){
+        new ItemView({model: newItem})
     });
 
     var router = new MainRouter();
 
-    //actually starts the router
     Backbone.history.start();
 
 });
