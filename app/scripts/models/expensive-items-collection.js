@@ -5,7 +5,7 @@ var ExpensiveItemsCollection = Backbone.Collection.extend({
 
     initialize: function() {
         this.fetch();
-        console.log(this);
+        //console.log(this);
     },
 
     //filter the returned object to cancel everything but the results prop

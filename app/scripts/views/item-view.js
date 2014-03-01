@@ -5,7 +5,6 @@ var ItemView = Backbone.View.extend({
     template: _.template($('#items-page-template').text()),
 
     events: {
-
     },
 
     initialize: function() {
@@ -16,7 +15,7 @@ var ItemView = Backbone.View.extend({
 
     render: function() {
         var renderedTemplate = this.template(this.model.attributes);
-        console.log(renderedTemplate);
+        //console.log(renderedTemplate);
         this.$el.append( renderedTemplate );
     }
 });
