@@ -20,42 +20,64 @@
     <body>
         <!--[if lt IE 10]>
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
-        <![endif]-->
+        <!--[endif]-->
 
 
         <div class="container">
+
             <div class="header">
-                <ul class="nav nav-pills pull-right">
-                    <li class="active"><a href="#home">Home</a></li>
-                    <li><a href="#items">Items</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <h3 class="text-muted">Etsy Horseplay</h3>
+                <h3 class=> etsworth.com </h3>
             </div>
 
-            <div class="main-container"></div>
+            <!-- Button trigger modal -->
+            <button id="launch-modal" class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
+              Launch demo modal
+            </button>
+
+            <!-- Modal -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+              <div class="modal-dialog">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Welcome to Etsworth!</h4>
+                  </div>
+                  <div class="modal-body">
+                    In a few moments, you'll take a quiz that shows you two paintings that are currently for sale on etsy.com. One of these items will be very cheap, one of them will be quite expensive. Your job is to determine which is which!
+                    <br>
+                    <br>
+                    Click the item that you think is cheapest.
+                    <br>
+                    <br>
+                    You'll get an overall score at the end. Share the quiz and see how your friends do!
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" id="start-quiz"class="btn btn-primary" data-dismiss="modal" data-loading-text="Loading quiz...">Take the quiz!</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- End Modal -->
+
+            <div id="quiz-wrapper"></div>
 
             <div class="footer">
-                Constructed solely for experimentation.
+                Constructed with love, for you, solely for $$$.
             </div>
 
         </div>
 
-        <script type="text/template" id="home-page-template">
-            <h1>Welcome!</h1>
-            <p class="lead">Click "Items" to see some weird stuff.</p>
-        </script>
 
         <script type="text/template" id="items-page-template">
-            <p class="lead"> <%= title %> </p>
-            <br>
-            <p> <%= price %></p>
-            <img src= <%= this.model.attributes.Images[0].url_570xN %> >
-        </script>
+          <div class="row">
+            <% _.each(items, function(item) { %>
+              <div class="item-container">
+                  <p class="lead"> <%= item.title %> </p>
+                  <img class="item-image" src= <%= item.image %> >
+                  <p> <%= item.price %> </p>
+              </div>
+            <% }); %>
+                </div>
 
-        <script type="text/template" id="contact-page-template">
-            <h1>Contact!</h1>
-            <p class="lead">Like what you see? Drop us a line!</p>
         </script>
 
 
@@ -82,10 +104,9 @@
 
         <!-- build:js({.tmp,app}) scripts/main.js -->
         <script src="scripts/router.js"></script>
-        <script src="scripts/views/home-view.js"></script>
-        <script src="scripts/views/contact-view.js"></script>
         <script src="scripts/views/item-view.js"></script>
-        <script src="scripts/models/item-model.js"></script>
+        <script src="scripts/models/expensive-item-model.js"></script>
+        <script src="scripts/models/cheap-item-model.js"></script>
         <script src="scripts/models/expensive-items-collection.js"></script>
         <script src="scripts/models/cheap-items-collection.js"></script>
         <script src="scripts/main.js"></script>
