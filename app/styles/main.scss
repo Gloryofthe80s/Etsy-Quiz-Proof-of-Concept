@@ -1,6 +1,28 @@
-$icon-font-path: "/bower_components/sass-bootstrap/fonts/";
+$icon-font-path: "../bower_components/sass-bootstrap/fonts/";
 
 @import 'sass-bootstrap/lib/bootstrap';
+
+// ------ VARIABLES & MIXINS ------
+
+$white: #FCFFF5;
+$cream: #D1DBBD;
+$green: #91AA9D;
+$light-blue: #3E606F;
+$dark-blue: #193441;
+$success: rgba(89, 211, 73, 0.75);
+$red: rgba(255, 52, 52, 0.75);
+$gray: #838B8E;
+
+@mixin sexy-emboss($opacity:0.8, $opacity2:0.05) {
+    box-shadow: 0 1px 0 rgba(255, 255, 255, $opacity),
+                inset 0 1px 0 rgba(0, 0, 0, $opacity2);
+}
+
+@mixin sexy-font-shadow($opacity:0.15){
+    text-shadow: 0 1px 0 rgba(0, 0, 0, $opacity);
+}
+
+// ------ INCLUDED ------
 
 .browsehappy {
     margin: 0.2em 0;
@@ -94,7 +116,15 @@ body {
     text-align: right;
 }
 
+#launch-modal {
+    display: none;
+}
+
 // ------ ITEM BOXES ------
+
+#quiz-wrapper {
+
+}
 
 .choices-container {
     position: relative;
