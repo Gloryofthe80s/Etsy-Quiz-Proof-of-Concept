@@ -1,0 +1,75 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+# General project settings
+#################################
+  ip_address = "172.22.22.21"
+  project_name = "etsworth"
+  database_password = "root"
+
+
+
+# Vagrant configuration
+#################################
+
+  Vagrant.configure("2") do |config|
+    # Enable Berkshelf support
+    config.berkshelf.enabled = true
+
+    # Define VM box to use
+    config.vm.box = "precise64"
+    config.vm.box_url = "http://files.vagrantup.com/precise64.box"
+
+    # Set share folder
+    config.vm.synced_folder "../" , "/var/www/" + project_name + "/", :mount_options => ["dmode=777", "fmode=666"]
+
+
+    # Use hostonly network with a static IP Address and enable
+    # hostmanager so we can have a custom domain for the server
+    # by modifying the host machines hosts file
+    config.hostmanager.enabled = true
+    config.hostmanager.manage_host = true
+    config.vm.define project_name do |node|
+      node.vm.hostname = project_name + ".dev"
+      node.vm.network :private_network, ip: ip_address
+      node.hostmanager.aliases = [ "www." + project_name + ".dev" ]
+    end
+    config.vm.provision :hostmanager
+
+    # Make sure that the newest version of Chef have been installed
+    config.vm.provision :shell, :inline => "apt-get update -qq && apt-get install make ruby1.9.1-dev --no-upgrade --yes"
+    config.vm.provision :shell, :inline => "gem install chef --version 11.6.0 --no-rdoc --no-ri --conservative"
+    config.vm.provision :shell, :inline => "gem install compass --no-rdoc --no-ri"
+    config.vm.provision :shell, :inline => "gem install sass --no-rdoc --no-ri"
+
+    # Enable and configure chef solo
+    config.vm.provision :chef_solo do |chef|
+      chef.add_recipe "app::app_server"
+      chef.json = {
+        :app => {
+          # Project name
+          :name           => project_name,
+
+          # Name of MySQL database that should be created
+          :db_name        => "etsworth",
+
+          # Server name and alias(es) for Apache vhost
+          :server_name    => project_name + ".dev",
+          :server_aliases =>  [ "www." + project_name + ".dev" ],
+
+          # Document root for Apache vhost
+          :docroot        => "/var/www/" + project_name + "/public",
+
+          # General packages
+          :packages   => %w{ vim git screen curl },
+          
+          # node packages installed globally
+          :npm_packages   => %w{ forever bower grunt-cli yo },
+
+          :gems => %w{ compass sass}
+        }
+      }
+    end
+        config.vm.provision :shell, :inline => "sudo grunt --gruntfile /var/www/etsworth/Gruntfile.js serve --force"
+
+  end

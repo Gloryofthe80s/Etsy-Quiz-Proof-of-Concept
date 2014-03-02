@@ -1,0 +1,43 @@
+{
+  "sources": {
+    "apt": {
+      "locked_version": "2.3.8"
+    },
+    "nodejs": {
+      "locked_version": "1.3.0",
+      "git": "https://github.com/mdxp/nodejs-cookbook",
+      "ref": "4c685529e7a8db0222b17407367e8b309afd3137"
+    },
+    "npm": {
+      "locked_version": "0.1.2",
+      "git": "https://github.com/balbeko/chef-npm",
+      "ref": "1ce1b27ceef912f671c81d0e1442e8de0a25c147"
+    },
+    "mongodb": {
+      "locked_version": "0.15.0",
+      "git": "https://github.com/edelight/chef-mongodb",
+      "ref": "16d697608a5c44349ff5dffc564cff119707cac5"
+    },
+    "openssl": {
+      "locked_version": "1.1.0"
+    },
+    "app": {
+      "path": "./site-cookbooks/app"
+    },
+    "yum": {
+      "locked_version": "3.1.2"
+    },
+    "build-essential": {
+      "locked_version": "1.4.4"
+    },
+    "python": {
+      "locked_version": "1.4.6"
+    },
+    "yum-epel": {
+      "locked_version": "0.3.4"
+    },
+    "runit": {
+      "locked_version": "1.5.8"
+    }
+  }
+}
