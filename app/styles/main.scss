@@ -126,8 +126,13 @@ body {
 
 }
 
+.row {
+    margin-bottom: 20px;
+}
+
 .choices-container {
-    position: relative;
+    display: inline-block;
+    margin-right: 20px;
 }
 
 .item-container {

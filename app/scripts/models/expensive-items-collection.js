@@ -1,7 +1,7 @@
 var ExpensiveItemsCollection = Backbone.Collection.extend({
     model: ExpensiveItem,
 
-    url: "https://api.etsy.com/v2/listings/active.js?limit=250&tags=art,painting&min_price=1000&max_price=5000&includes=Images&api_key=gpby6hrhuzepnv0rx17946lk&callback=?",
+    url: "https://api.etsy.com/v2/listings/active.js?limit=50&tags=art,painting&min_price=1000&max_price=5000&includes=Images&api_key=gpby6hrhuzepnv0rx17946lk&callback=?",
 
     initialize: function() {
 
