@@ -2,44 +2,48 @@ var ItemView = Backbone.View.extend({
     tagName: 'div',
     className: 'choices-container',
 
-    template: _.template($('#items-page-template').text()),
+    template: _.template($('#item-template').text()),
 
     events: {
 
     },
 
-    initialize: function() {
-        $('#quiz-wrapper').append( this.el ); //empty tag into DOM
+    initialize: function(options, rowDOM) {
+        var theRowToAppendTo = rowDOM;
 
+        theRowToAppendTo.append( this.el ); //empty tag into the row created in the RowView
         this.render();
     },
 
     render: function() {
-        console.log(this.model);
         var renderedTemplate = this.template(this.model.attributes);
+
         this.$el.append( renderedTemplate );
     }
 });
 
 var RowView = Backbone.View.extend({
+
     tagName: 'div',
     className: 'row',
-    contents: [],
 
-    leftTemplate: _.template($('#item-left-template').text()),
-    rightTemplate: _.template($('#item-right-template').text()),
-
-    initialize: function() {
+    initialize: function(options) {
         $('#quiz-wrapper').append( this.el ); //row into DOM
+
+        this.modelA = options.modelA;
+        this.modelB = options.modelB;
+
+        //change image URL to something simpler for template
+        this.modelA.attributes.image = this.modelA.get('Images')[0].url_570xN;
+        this.modelB.attributes.image = this.modelB.get('Images')[0].url_570xN;
+
+
         this.render();
     },
 
     render: function() {
-        new ItemView({model: actualQuiz[0]});
-        new ItemView({model: actualQuiz[1]});
+        var rowDOM = this.$el;
+        this.$el.append(new ItemView({model: this.modelA}, rowDOM));
+        this.$el.append(new ItemView({model: this.modelB}, rowDOM));
     }
 });
-
-// cheapItem.image = this.model.Images[0].url_570xN;
-
-
