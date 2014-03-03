@@ -5,6 +5,7 @@ var ItemView = Backbone.View.extend({
     template: _.template($('#items-page-template').text()),
 
     events: {
+
     },
 
     initialize: function() {
@@ -14,7 +15,7 @@ var ItemView = Backbone.View.extend({
     },
 
     render: function() {
-        console.log(this.model.attributes);
+        console.log(this.model);
         var renderedTemplate = this.template(this.model.attributes);
         this.$el.append( renderedTemplate );
     }
@@ -23,19 +24,19 @@ var ItemView = Backbone.View.extend({
 var RowView = Backbone.View.extend({
     tagName: 'div',
     className: 'row',
+    contents: [],
 
     leftTemplate: _.template($('#item-left-template').text()),
     rightTemplate: _.template($('#item-right-template').text()),
 
     initialize: function() {
         $('#quiz-wrapper').append( this.el ); //row into DOM
+        this.render();
     },
 
     render: function() {
-        new ItemView({model: this.items[0]});
-        new ItemView({model: this.items[1]});
-        // leftTemplate(this.items[0]);
-        // rightTemplate(this.items[1]);
+        new ItemView({model: actualQuiz[0]});
+        new ItemView({model: actualQuiz[1]});
     }
 });
 

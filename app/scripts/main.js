@@ -11,17 +11,17 @@ $(document).ready(function () {
           success: function () {
             expensiveItems.fetch({
               success: function() {
-                console.log('collections loaded!')
                 expensiveItems = expensiveItems.shuffle();
                 cheapItems = cheapItems.shuffle();
 
-                for (var i = 0; i > 14; i++) {
-                    var staging = [expensiveItem[i], cheapItem[i]]
-                    staging.shuffle();
+                for (var i = 0; i <= 14; i++) {
+                    var staging = [expensiveItems[i], cheapItems[i]];
+                    staging = _.shuffle(staging);
 
                     //put the 'mini-array' pair in the actual array
                     actualQuiz.push(staging);
                 };
+
                 $('#start-quiz').button('reset');
               }
           })
@@ -29,18 +29,13 @@ $(document).ready(function () {
         });
     }();
 
-
-
-
+    //on quiz launch
     $('#start-quiz').on('click', function() {
-            console.log('quiz loaded!');
+        $('#quiz-wrapper').html('');
 
-            $('#quiz-wrapper').html('');
-            _.each(actualQuiz, function(i) {
-                var aRow = new RowView();
-                aRow.items = actualQuiz[i];
-                aRow.render();
-            })
+        _.each(actualQuiz, function() {
+            new RowView();
+        })
     });
 
 
