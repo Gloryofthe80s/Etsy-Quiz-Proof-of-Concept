@@ -5,6 +5,7 @@ var ItemView = Backbone.View.extend({
     template: _.template($('#items-page-template').text()),
 
     events: {
+
     },
 
     initialize: function() {
@@ -14,6 +15,7 @@ var ItemView = Backbone.View.extend({
     },
 
     render: function() {
+        console.log(this.model);
         var renderedTemplate = this.template(this.model.attributes);
         this.$el.append( renderedTemplate );
     }
@@ -22,41 +24,22 @@ var ItemView = Backbone.View.extend({
 var RowView = Backbone.View.extend({
     tagName: 'div',
     className: 'row',
-    left: {},
-    right: {},
+    contents: [],
+
+    leftTemplate: _.template($('#item-left-template').text()),
+    rightTemplate: _.template($('#item-right-template').text()),
 
     initialize: function() {
-        //this.render();
+        $('#quiz-wrapper').append( this.el ); //row into DOM
+        this.render();
     },
 
     render: function() {
-        // my left item
-        var left = this.left;
-        var right = this.right;
-
-        var items = [left, right];
-        items = _.shuffle(items);
-
-        var theRow = this.el.text();
-        this.$el.append( theRow );
-
-        //randomizer function
-        //new ItemView w expensive-item-model
-        //new ItemView w cheap-item-model
+        new ItemView({model: actualQuiz[0]});
+        new ItemView({model: actualQuiz[1]});
     }
 });
 
+// cheapItem.image = this.model.Images[0].url_570xN;
 
-// this is the controller. or wherever you're going to call the 'render' function
-// for the RowView
 
-var row = new RowView(),
-    cheapItem = new ItemView();
-
-cheapItem.image = this.model.Images[0].url_570xN;
-
-// you've already figured out the order
-row.left = cheapItem; // whatever the item is
-row.right = {}; // whatever for the right
-
-row.render();
