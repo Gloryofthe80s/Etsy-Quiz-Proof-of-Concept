@@ -39,8 +39,9 @@
     # Make sure that the newest version of Chef have been installed
     config.vm.provision :shell, :inline => "apt-get update -qq && apt-get install make ruby1.9.1-dev --no-upgrade --yes"
     config.vm.provision :shell, :inline => "gem install chef --version 11.6.0 --no-rdoc --no-ri --conservative"
-    config.vm.provision :shell, :inline => "gem install compass --no-rdoc --no-ri"
-    config.vm.provision :shell, :inline => "gem install sass --no-rdoc --no-ri"
+    config.vm.provision :shell, :inline => "gem install sass --version 3.2.14 --no-rdoc --no-ri "
+    config.vm.provision :shell, :inline => "gem install compass --version 0.12.2 --no-rdoc --no-ri "
+
 
     # Enable and configure chef solo
     config.vm.provision :chef_solo do |chef|
@@ -59,17 +60,17 @@
 
           # Document root for Apache vhost
           :docroot        => "/var/www/" + project_name + "/public",
-
+ 
           # General packages
           :packages   => %w{ vim git screen curl },
           
+          #:gems => %w{ compass sass}
+
           # node packages installed globally
           :npm_packages   => %w{ forever bower grunt-cli yo },
-
-          :gems => %w{ compass sass}
         }
       }
     end
-        config.vm.provision :shell, :inline => "sudo grunt --gruntfile /var/www/etsworth/Gruntfile.js serve --force"
+        #config.vm.provision :shell, :inline => "sudo grunt --gruntfile /var/www/etsworth/Gruntfile.js serve --force & disown"
 
   end

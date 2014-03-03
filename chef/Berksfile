@@ -1,8 +1,10 @@
 site :opscode
 
 cookbook "apt"
+cookbook "rvm", git: 'https://github.com/fnichol/chef-rvm'
 cookbook "nodejs", git: 'https://github.com/mdxp/nodejs-cookbook'
 cookbook "npm", git: 'https://github.com/balbeko/chef-npm'
 cookbook "mongodb", git: 'https://github.com/edelight/chef-mongodb'
 cookbook "openssl"
 cookbook 'app', path: './site-cookbooks/app'
+cookbook 'sudo', git: 'https://github.com/opscode-cookbooks/sudo'

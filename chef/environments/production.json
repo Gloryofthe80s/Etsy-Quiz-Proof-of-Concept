@@ -1,0 +1,30 @@
+{
+    "name": "production",
+    "default_attributes": {
+        "rvm" : {
+            "global_gems" : [
+                {"name": "compass",
+                "version": "0.12.2"},
+                {"name": "sass",
+                "version": "3.3.0.rc.5",
+                "action": "remove"},
+                {"name": "sass",
+                "version": "3.2.14"}
+            ]
+        },
+        "app": {
+            "name": "etsworth",
+            "db_name": "etsworth",
+            "server_name": "etsworth",
+            "docroot": "/var/www/etsworth/app",
+            "packages": ["vim", "git", "screen", "curl"],
+	    "npm_packages": [ "forever", "bower", "grunt-cli", "grunt", "yo"]
+        }
+    },
+    "json_class": "Chef::Environment",
+    "description": "",
+    "cookbook_versions": {
+
+    },
+    "chef_type": "environment"
+}

@@ -7,29 +7,23 @@
 # All rights reserved - Do Not Redistribute
 #
 
+# Makes sure apt is up to date
+include_recipe "apt"
 
 include_recipe "nodejs"
 include_recipe "npm"
-include_recipe "mongodb"
+#include_recipe "mongodb"
 
 
-# Install Composer
-# bash "composer" do
-#   code <<-EOH
-#     curl -s https://getcomposer.org/installer | php
-#     sudo mv composer.phar /usr/local/bin/composer
-#   EOH
-# end
+# Install app packages
+node['app']['packages'].each do |a_package|
+  package a_package
+end
 
-#bash "gems" do
-#   code <<-EOH
-#     curl -s https://getcomposer.org/installer | php
-#     sudo mv composer.phar /usr/local/bin/composer
-#   EOH
-# end
 
 node['app']['npm_packages'].each do |a_package|
 	npm_package a_package do
   		action :install
 	end 
 end
+

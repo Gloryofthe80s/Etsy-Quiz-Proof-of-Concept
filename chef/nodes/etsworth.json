@@ -1,0 +1,1 @@
+{"run_list":["recipe[rvm::system]", "recipe[app::app_server]"],"environment":"production"}
