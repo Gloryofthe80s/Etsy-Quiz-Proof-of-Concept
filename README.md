@@ -1,4 +1,4 @@
-Router_Example
+Etsy-Quiz-Proof-of-Concept
 ==============
 
 This repo is a strictly a proof of concept. I am using Backbone to hit Etsy's API to fetch some painting listings and then organizing them into collections (expensive items vs. cheap items) using different query string parameters in the Collection URL. 
